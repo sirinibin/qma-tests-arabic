@@ -1,0 +1,28 @@
+# suite config
+suites:
+    acceptance:
+        actor: AcceptanceTester
+        path: .
+        modules:
+            enabled:
+                - WebDriver:
+                    url: http://100.24.131.250/qma_test/qmaweb
+                    window_size: 1280x1200
+                    browser: chrome
+                    pageload_timeout: 120
+
+                - \Helper\Acceptance
+                
+extensions:
+    enabled: [Codeception\Extension\RunFailed]
+
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+actor_suffix: Tester
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
