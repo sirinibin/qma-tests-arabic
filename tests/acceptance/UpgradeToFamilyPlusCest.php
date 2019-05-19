@@ -117,12 +117,12 @@ class UpgradeToFamilyPlusCest
           $I->executeJS("window.scrollTo(0,700);");
           $I->wait(1);
 
-           //Check the Current MemberShip
-           $I->amOnPage('/');
-           $I->see('BOOK YOUR TICKETS');
-           $I->executeJS("window.scrollTo(0,900);");
-           $I->see("Family Plus");
-           $I->wait(6);
+        //Check the Current MemberShip
+         $I->amOnPage('/');
+         $I->executeJS("window.scrollTo(0,900);");
+         $I->wait(2);
+         $I->see("CP Family");
+         $I->wait(6);
 
     }
 }
