@@ -61,10 +61,10 @@ class GuestTicketPurchaseCest
         $I->click("#Paybutton");
         $I->waitForElementVisible('//*[@id="ContainerContent"]/center/form/table/tbody/tr[13]/td/input');
         $I->click("Submit");
-        $I->waitForText("Please wait while your payment is processed");
-        $I->waitForText("Your payment has been approved.");
-        $I->waitForText("TICKET PURCHASED SUCCESFULLY!");
-        $I->executeJS("window.scrollTo(0,600);");
+        $I->waitForText("Please wait while your payment is processed",15);
+        $I->waitForText("Your payment has been approved.",15);
+        $I->executeJS("window.scrollTo(0,700);");
+        $I->waitForElementVisible("//h2[text()='TICKET PURCHASED SUCCESFULLY!']",15);
         $I->wait(5);
     }
 }
