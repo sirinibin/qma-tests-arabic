@@ -1,5 +1,5 @@
 # QMA Tests
-  This repository contains Acceptance tests for the QMA website written using Codeception framework configured with Selenium & Chrome Driver.
+  This repository contains Acceptance tests for the QMA website written using [Codeception framework](https://codeception.com) (PHP based) configured with [Selenium]( https://www.seleniumhq.org) & [Chrome Driver](http://chromedriver.chromium.org).
 # Set Up
 
 1.Download Standalone Selenium Server
@@ -55,3 +55,11 @@ extensions:
 ```
 tests/acceptance
 ```
+
+# References
+
+1.https://codeception.com/docs/03-AcceptanceTests
+
+2.https://www.seleniumhq.org/download/
+
+3.http://chromedriver.chromium.org/downloads
