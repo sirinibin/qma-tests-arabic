@@ -151,7 +151,7 @@ class IndividualPlusUserTicketPurchaseCest
         $I->waitForText("Your payment has been approved.",15);
         $I->executeJS("window.scrollTo(0,700);");
         $I->waitForElementVisible("//h2[text()='TICKET PURCHASED SUCCESFULLY!']",15);
-        
+        $I->executeJS("window.scrollTo(0,500);");
         $I->wait(5);
     }
 }

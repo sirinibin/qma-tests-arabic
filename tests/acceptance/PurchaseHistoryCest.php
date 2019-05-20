@@ -1,16 +1,17 @@
 <?php 
 
-class FamilyPlusUserTicketPurchaseCest
+class PurchasHistoryCest
 {
     public $email;
     public $password;
     public $firstName;
     public $lastName;
     public $phone;
+    public $ticketID;
 
     public function _before(AcceptanceTester $I)
     {
-         // Register a new user account with Individual membership plan
+         // Register a new user account
          $I->amOnPage('/');
          $I->see('BOOK YOUR TICKETS');
          $I->executeJS("window.scrollTo(0,500);");
@@ -19,9 +20,9 @@ class FamilyPlusUserTicketPurchaseCest
          $I->wait(2);
          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
  
-         //Select FamilyPlus plan
-         $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[3]/div/a');
-         $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[3]/div/a');
+         //Select basic plan
+         $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
+         $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
          $I->click('next');
  
          //Fill the Your account details form
@@ -53,27 +54,10 @@ class FamilyPlusUserTicketPurchaseCest
          $I->click('next');
          $I->wait(2);
     
-           //Select Master Card & Make Payment
-         $I->waitForElementVisible('/html/body/center/table[6]/tbody/tr[3]/td/table/tbody/tr/td[1]/a/img');
-         $I->click('/html/body/center/table[6]/tbody/tr[3]/td/table/tbody/tr/td[1]/a/img');
-           
-         $I->waitForElementVisible('#CardNumber');
-         $I->fillField('#CardNumber',"5123456789012346");
-         $I->fillField('#CardMonth','12');
-         $I->fillField('#CardYear','21');
-         $I->fillField('cardsecurecode','000');
-         $I->click("#Paybutton");
-         $I->waitForElementVisible('//*[@id="ContainerContent"]/center/form/table/tbody/tr[13]/td/input');
-         $I->click("Submit");
-         $I->waitForText("Please wait while your payment is processed");
-         $I->waitForText("Your payment has been approved.");
- 
- 
          //$I->waitForText('MEMBERSHIP PURCHASED SUCCESSFULY!');
          $I->waitForElementVisible('//h2[text()="MEMBERSHIP PURCHASED SUCCESSFULY!"]');
          $I->executeJS("window.scrollTo(0,700);");
-         $I->wait(6);
-
+         $I->wait(2);
 
          //Login
         $I->amOnPage('/');
@@ -89,13 +73,8 @@ class FamilyPlusUserTicketPurchaseCest
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
 
+        //Purchase a ticket
 
-    }
-
-    // tests
-    public function tryToTest(AcceptanceTester $I)
-    {
-        $I->wantTo('Test Family Plus User Ticket Purchase');
         // Land on home page and Press next button
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
@@ -121,10 +100,10 @@ class FamilyPlusUserTicketPurchaseCest
         $I->see("enter your information to receive tickets");
         $I->wait(2);
         
-        $I->fillField('#qmatkt-firstname', $this->firstName);
-        $I->fillField('#qmatkt-lastname', $this->lastName);
-        $I->fillField('#qmatkt-email', $this->email);
-        $I->fillField('#qmatkt-phone', $this->phone);
+        $I->fillField('#qmatkt-firstname', "john");
+        $I->fillField('#qmatkt-lastname', "Jhones");
+        $I->fillField('#qmatkt-email', "john@gmail.com");
+        $I->fillField('#qmatkt-phone', 9633977699);
 
         $I->wait(2);
         $I->click('next');
@@ -152,6 +131,19 @@ class FamilyPlusUserTicketPurchaseCest
         $I->executeJS("window.scrollTo(0,700);");
         $I->waitForElementVisible("//h2[text()='TICKET PURCHASED SUCCESFULLY!']",15);
         $I->executeJS("window.scrollTo(0,500);");
-        $I->wait(5);
+        $I->wait(2);
+        $ticketIDString=$I->grabTextFrom('//*[@id="node-46"]/div/div/div/div/div/div/article[1]/span[2]');
+        $ticketID=explode(" ", $ticketIDString);
+        $this->ticketID=$ticketID[(count($ticketID)-1)];
+        $I->wait(2);
+
+    }
+
+    // tests
+    public function tryToTest(AcceptanceTester $I)
+    {
+        $I->wantTo('Test Purchas History');
+        $I->amOnPage('/purchase-history');
+        $I->see($this->ticketID);
     }
 }
