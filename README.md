@@ -43,7 +43,7 @@ cd qma-tests
 php codecept.phar run --debug
 ```
 
-### 7.Running an Individual Test Example
+### 7.Running Individual Test Example
 
 ```
 cd qma-tests
