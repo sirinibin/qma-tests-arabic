@@ -15,6 +15,7 @@
 ```
 
 4.Start Selenium Server
+Note: Make sure you have Java Installed in your system
 ```
 cd to Download location
 ./selenium-server-standalone-3.141.59.jar
