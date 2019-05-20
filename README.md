@@ -4,6 +4,7 @@
 
 1.Download Standalone Selenium Server
   https://www.seleniumhq.org/download/
+
 2.Download Chrome Web driver
  http://chromedriver.chromium.org/downloads
 
@@ -11,22 +12,29 @@
 ```
  cd to Download location
  ./chromedriver
- ```
+...
+```
+
 4.Start Selenium Server
 ```
 cd to Download location
 ./selenium-server-standalone-3.141.59.jar
+...
 ```
+
 # Running Tests
 ```
 php codecept.phar run --debug
+...
 ```
 
 # Running an Individual Test Example
 
 ```
 php codecept.phar run tests/acceptance/LoginCest --debug
+...
 ```
+
 # Edit codeception.yml to update Web App URL & Browser settings
 ```
 # suite config
@@ -46,8 +54,10 @@ suites:
                 
 extensions:
     enabled: [Codeception\Extension\RunFailed]
+...
 ```
 # Test Code Location
 ```
 tests/acceptance
+...
 ```
