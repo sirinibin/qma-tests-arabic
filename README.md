@@ -26,8 +26,11 @@ cd to Download location
 
   ```
   sudo apt-get install software-properties-common
+
   sudo add-apt-repository ppa:ondrej/php
+
   sudo apt-get update
+  
   sudo apt-get install -y php7.3
   ```
 
@@ -36,7 +39,7 @@ cd to Download location
   ```
   curl -s http://php-osx.liip.ch/install.sh | bash -s 7.2
   ```
-  
+
 # Running Tests
 ```
 cd qma-tests
