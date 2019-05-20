@@ -28,7 +28,7 @@ sudo apt-get update
 sudo apt-get install -y php7.3
 ```
 
-5.Install PHP 7 in Mac
+6.Install PHP 7 in Mac
 ```
 curl -s http://php-osx.liip.ch/install.sh | bash -s 7.2
 ```
