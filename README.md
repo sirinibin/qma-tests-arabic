@@ -20,18 +20,20 @@ cd to Download location
 ./selenium-server-standalone-3.141.59.jar
 ```
 
-5.Install PHP 7 in Ubuntu
-```
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-sudo apt-get install -y php7.3
-```
+5.Install PHP 7 
 
-6.Install PHP 7 in Mac
-```
-curl -s http://php-osx.liip.ch/install.sh | bash -s 7.2
-```
+  Ubuntu: 
+  ```
+  sudo apt-get install software-properties-common
+  sudo add-apt-repository ppa:ondrej/php
+  sudo apt-get update
+  sudo apt-get install -y php7.3
+  ```
+
+  Mac :
+  ```
+  curl -s http://php-osx.liip.ch/install.sh | bash -s 7.2
+  ```
 
 
 # Running Tests
