@@ -64,7 +64,7 @@ class UpgradeToIndividualPlusCest
         
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
         $I->fillField('username',$this->email);
         $I->fillField('password',$this->password);
@@ -73,8 +73,8 @@ class UpgradeToIndividualPlusCest
         
         $I->waitForElementVisible('//a[text()="Log out"]');
         $I->waitForElementVisible('//a[text()="Edit Profile"]');
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
-        $I->executeJS("window.scrollTo(0,900);");
 
         //Check the Current MemberShip
         $I->see("CP Basic");
@@ -86,10 +86,11 @@ class UpgradeToIndividualPlusCest
     {
          $I->wantTo('Test Upgrade Basic to Individual Plus Membership upgrdation');
          $I->see("CP Basic");
+         //Click Upgrade button
          $I->click('//span[text()="Renew/Upgrade membership"]');
          $I->wait(3);
          $I->waitForElementVisible('//h2[text()="upgrade your cultural pass type"]');
-         $I->executeJS("window.scrollTo(0,900);");
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
 
           //Select IndividualPlus plan
@@ -132,7 +133,7 @@ class UpgradeToIndividualPlusCest
           //Check the Current MemberShip
           $I->amOnPage('/');
           $I->see('BOOK YOUR TICKETS');
-          $I->executeJS("window.scrollTo(0,900);");
+          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
           $I->see("CP Plus");
           $I->wait(6);
 

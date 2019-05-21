@@ -65,7 +65,7 @@ class PurchasHistoryCest
          //Login
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
         $I->fillField('username',$this->email);
         $I->fillField('password',$this->password);

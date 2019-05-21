@@ -63,7 +63,7 @@ class UpgradeToFamilyPlusCest
         
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
         $I->fillField('username',$this->email);
         $I->fillField('password',$this->password);
@@ -72,8 +72,8 @@ class UpgradeToFamilyPlusCest
         
         $I->waitForElementVisible('//a[text()="Log out"]');
         $I->waitForElementVisible('//a[text()="Edit Profile"]');
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
-        $I->executeJS("window.scrollTo(0,900);");
 
     }
 
@@ -81,10 +81,12 @@ class UpgradeToFamilyPlusCest
     public function tryToTest(AcceptanceTester $I)
     {
          $I->wantTo('Test Upgrade Basic to Family Plus Membership upgrdation');
+         $I->see("CP Basic");
+         //Click Upgrade button
          $I->click('//span[text()="Renew/Upgrade membership"]');
          $I->wait(3);
          $I->waitForElementVisible('//h2[text()="upgrade your cultural pass type"]');
-         $I->executeJS("window.scrollTo(0,900);");
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
           //Select Family Plus plan
          $I->waitForElementVisible('/html/body/section[2]/div/div[2]/div[1]/div[2]/div[3]/div/a');
@@ -125,7 +127,7 @@ class UpgradeToFamilyPlusCest
 
         //Check the Current MemberShip
          $I->amOnPage('/');
-         $I->executeJS("window.scrollTo(0,900);");
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
          $I->see("CP Family");
          $I->wait(6);

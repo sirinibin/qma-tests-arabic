@@ -85,7 +85,7 @@ class FamilyPlusMembershipPurchaseCest
          //Login
          $I->amOnPage('/');
          $I->see('BOOK YOUR TICKETS');
-         $I->executeJS("window.scrollTo(0,900);");
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
          $I->fillField('username',$this->email);
          $I->fillField('password',$this->password);
@@ -94,8 +94,8 @@ class FamilyPlusMembershipPurchaseCest
          
          $I->waitForElementVisible('//a[text()="Log out"]');
          $I->waitForElementVisible('//a[text()="Edit Profile"]');
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
-         $I->executeJS("window.scrollTo(0,900);");
 
         //Check the Current MemberShip
         $I->see("CP Family");

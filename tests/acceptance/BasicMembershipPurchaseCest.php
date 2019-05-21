@@ -66,7 +66,7 @@ class BasicMembershipPurchaseCest
         //Login
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
         $I->fillField('username',$this->email);
         $I->fillField('password',$this->password);
@@ -75,7 +75,7 @@ class BasicMembershipPurchaseCest
         $I->wait(4);
         $I->waitForElementVisible('//a[text()="Log out"]');
         $I->waitForElementVisible('//a[text()="Edit Profile"]');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
 
         //Check the Current MemberShip

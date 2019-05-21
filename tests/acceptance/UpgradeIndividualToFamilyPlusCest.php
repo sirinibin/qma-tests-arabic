@@ -92,6 +92,7 @@ class UpgradeIndividualToFamilyPlusCest
         $I->waitForElementVisible('//a[text()="Edit Profile"]');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,900);");
+        $I->wait(2);
 
     }
 
@@ -99,10 +100,12 @@ class UpgradeIndividualToFamilyPlusCest
     public function tryToTest(AcceptanceTester $I)
     {
          $I->wantTo('Test Upgrade Individual to Family Plus Membership upgrdation');
+         $I->see("CP Plus");
+         //Click Upgrade button
          $I->click('//span[text()="Renew/Upgrade membership"]');
          $I->wait(3);
          $I->waitForElementVisible('//h2[text()="upgrade your cultural pass type"]');
-         $I->executeJS("window.scrollTo(0,900);");
+         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
           //Select Family Plus plan
          $I->waitForElementVisible('/html/body/section[2]/div/div[2]/div[1]/div[2]/div[3]/div/a');
