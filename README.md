@@ -19,7 +19,7 @@
 > Note: Make sure you have Java Installed in your system
 ```
 cd to Download location
-./selenium-server-standalone-3.141.59.jar
+java -jar selenium-server-standalone-3.141.59.jar
 ```
 
 ### 5.Install PHP 7 
