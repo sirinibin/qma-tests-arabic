@@ -99,7 +99,7 @@ class UpgradeIndividualToFamilyPlusCest
     public function tryToTest(AcceptanceTester $I)
     {
          $I->wantTo('Test Upgrade Individual to Family Plus Membership upgrdation');
-         $I->click('//span[text()="Upgrade your card to enjoy more benefits"]');
+         $I->click('//span[text()="Renew/Upgrade membership"]');
          $I->wait(3);
          $I->waitForElementVisible('//h2[text()="upgrade your cultural pass type"]');
          $I->executeJS("window.scrollTo(0,900);");
