@@ -70,7 +70,8 @@ class LoginCest
         $I->wait(2);
         $I->fillField('username',$this->email);
         $I->fillField('password',$this->password);
-        $I->click("Log in");
+        //Click Login
+        $I->click('//*[@id="edit-submit"]');
         
         $I->waitForElementVisible('//a[text()="Log out"]');
         $I->waitForElementVisible('//a[text()="Edit Profile"]');
