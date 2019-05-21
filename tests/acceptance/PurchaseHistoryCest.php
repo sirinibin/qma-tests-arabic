@@ -23,7 +23,8 @@ class PurchasHistoryCest
          //Select basic plan
          $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
          $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
-         $I->click('next');
+         //Click Next button
+        $I->click('next');
  
          //Fill the Your account details form
          $this->email='test'.mt_rand().'@gmail.com';
@@ -44,6 +45,7 @@ class PurchasHistoryCest
          $I->fillField('#usrfrm_lastname',$this->lastName);
          $I->fillField('#usrfrm_phone',$this->phone);
  
+         //Click Next button
          $I->click('next');
        //  
          $I->waitForElementVisible('//h2[text()="please check your order"]');
@@ -51,6 +53,7 @@ class PurchasHistoryCest
          $I->see($this->email);
          $I->wait(2);
  
+         //Click Next button
          $I->click('next');
          $I->wait(2);
     
@@ -80,8 +83,8 @@ class PurchasHistoryCest
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
-        $I->see("WHEN WOULD YOU LIKE TO VISIT THE MUSEUM?");
         $I->wait(2);
+        //Click Next button
         $I->click('next');
         $I->wait(2);
 
@@ -91,9 +94,10 @@ class PurchasHistoryCest
         $I->waitForElementVisible("/html/body/section[2]/div/div/div[1]/div[2]/h2");
         $I->see('select tickets');
         $I->wait(2);
-        $I->waitForElementVisible('//*[@id="list_tickets"]/div[1]/article/div/button[2]');
-        $I->click('//*[@id="list_tickets"]/div[1]/article/div/button[2]');
+        $I->waitForElementVisible('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
+        $I->click('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
         $I->wait(2);
+        //Click Next button
         $I->click('next');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
@@ -107,12 +111,14 @@ class PurchasHistoryCest
         $I->fillField('#qmatkt-phone', 9633977699);
 
         $I->wait(2);
+        //Click Next button
         $I->click('next');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
         $I->wait(2);
         $I->see("please check your order");
         $I->wait(2);
+        //Click Next button
         $I->click('next');
         //Select Master Card
         $I->waitForElementVisible('/html/body/center/table[6]/tbody/tr[3]/td/table/tbody/tr/td[1]/a/img');

@@ -22,6 +22,7 @@ class UpgradeToFamilyPlusCest
         //Select basic plan
         $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
         $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
+        //Click Next button
         $I->click('next');
 
         //Fill the Your account details form
@@ -43,6 +44,7 @@ class UpgradeToFamilyPlusCest
         $I->fillField('#usrfrm_lastname',$this->lastName);
         $I->fillField('#usrfrm_phone',$this->phone);
 
+        //Click Next button
         $I->click('next');
       //  
         $I->waitForElementVisible('//h2[text()="please check your order"]');
@@ -50,6 +52,7 @@ class UpgradeToFamilyPlusCest
         $I->see($this->email);
         $I->wait(2);
 
+        //Click Next button
         $I->click('next');
         $I->wait(2);
         $I->waitForElementVisible('//h2[text()="MEMBERSHIP PURCHASED SUCCESSFULY!"]',15);
@@ -86,7 +89,8 @@ class UpgradeToFamilyPlusCest
           //Select Family Plus plan
          $I->waitForElementVisible('/html/body/section[2]/div/div[2]/div[1]/div[2]/div[3]/div/a');
          $I->click('/html/body/section[2]/div/div[2]/div[1]/div[2]/div[3]/div/a');
-         $I->click('next');
+         //Click Next button
+        $I->click('next');
 
          $I->wait(3);
 
@@ -94,7 +98,8 @@ class UpgradeToFamilyPlusCest
           $I->see($this->email);
           $I->wait(2);
   
-          $I->click('next');
+          //Click Next button
+        $I->click('next');
           $I->wait(2);
      
           //Select Master Card & Make Payment

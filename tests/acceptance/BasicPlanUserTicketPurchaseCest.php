@@ -84,7 +84,6 @@ class BasicPlanUserTicketPurchaseCest
         $I->amOnPage('/');
         $I->see('BOOK YOUR TICKETS');
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
-        $I->see("WHEN WOULD YOU LIKE TO VISIT THE MUSEUM?");
         $I->wait(2);
         $I->click('next');
         $I->wait(2);
@@ -95,8 +94,9 @@ class BasicPlanUserTicketPurchaseCest
         $I->waitForElementVisible("/html/body/section[2]/div/div/div[1]/div[2]/h2");
         $I->see('select tickets');
         $I->wait(2);
-        $I->waitForElementVisible('//*[@id="list_tickets"]/div[1]/article/div/button[2]');
-        $I->click('//*[@id="list_tickets"]/div[1]/article/div/button[2]');
+        $I->waitForElementVisible('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
+        $I->click('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
+        
         $I->wait(2);
         $I->click('next');
         $I->wait(2);

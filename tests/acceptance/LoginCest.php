@@ -22,6 +22,7 @@ class LoginCest
         //Select basic plan
         $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
         $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[1]/div/a');
+        //Click Next button
         $I->click('next');
 
         //Fill the Your account details form
@@ -43,6 +44,7 @@ class LoginCest
         $I->fillField('#usrfrm_lastname',$this->lastName);
         $I->fillField('#usrfrm_phone',$this->phone);
 
+        //Click Next button
         $I->click('next');
       //  
         $I->waitForElementVisible('//h2[text()="please check your order"]');
@@ -50,6 +52,7 @@ class LoginCest
         $I->see($this->email);
         $I->wait(2);
 
+        //Click Next button
         $I->click('next');
         $I->wait(2);
    
