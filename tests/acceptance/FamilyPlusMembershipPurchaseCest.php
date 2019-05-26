@@ -1,5 +1,5 @@
 <?php 
-
+require_once("common.php");
 class FamilyPlusMembershipPurchaseCest
 {
   public $email;
@@ -17,22 +17,27 @@ class FamilyPlusMembershipPurchaseCest
     {
         $I->wantTo('Test Family Plus Membership Purchase');
         $I->amOnPage('/');
-        $I->see('BOOK YOUR TICKETS');
+        $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
         $I->executeJS("window.scrollTo(0,500);");
         $I->wait(2);
-        $I->click("join");
+         //click Join
+        $I->waitForElementVisible('//a[text()="التسجيل"]');
+        $I->click('//a[text()="التسجيل"]');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
-
+        $I->wait(2);
         //Select FamilyPlus plan
-        $I->waitForElementVisible('//*[@id="user-register-form"]/div/div[1]/div[2]/div[3]/div/a');
-        $I->click('//*[@id="user-register-form"]/div/div[1]/div[2]/div[3]/div/a');
+        $I->waitForElementVisible(CP_FAMILY);
+        $I->click(CP_FAMILY);
+        
+                   
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
 
         //Fill the Your account details form
         $this->email='test'.mt_rand().'@gmail.com';
-        $this->password="123";
+        $this->password="#Infoboyz123";
         $this->firstName="test";
         $this->lastName="test";
         $this->phone=9633977699;
@@ -50,15 +55,17 @@ class FamilyPlusMembershipPurchaseCest
         $I->fillField('#usrfrm_phone',$this->phone);
 
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
       //  
-        $I->waitForElementVisible('//h2[text()="please check your order"]');
-       // $I->waitForText('please check your order');
+        $I->waitForElementVisible('//h2[text()="يرجى التحقق من طلبك"]');  // check for text "please check your order"
+       // $I->waitForText('يرجى التحقق من طلبك');
         $I->see($this->email);
         $I->wait(2);
 
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
         $I->wait(2);
    
           //Select Master Card & Make Payment
@@ -71,36 +78,35 @@ class FamilyPlusMembershipPurchaseCest
         $I->fillField('#CardYear','21');
         $I->fillField('cardsecurecode','000');
         $I->click("#Paybutton");
-        $I->waitForElementVisible('//*[@id="ContainerContent"]/center/form/table/tbody/tr[13]/td/input');
+        $I->waitForElementVisible('//*[@id="ContainerContent"]/center/form/table/tbody/tr[13]/td/input',15);
         $I->click("Submit");
-        $I->waitForText("Please wait while your payment is processed");
-        $I->waitForText("Your payment has been approved.");
+        $I->waitForText("Please wait while your payment is processed",15);
+        $I->waitForText("Your payment has been approved.",15);
 
 
         //$I->waitForText('MEMBERSHIP PURCHASED SUCCESSFULY!');
-        $I->waitForElementVisible('//h2[text()="MEMBERSHIP PURCHASED SUCCESSFULY!"]');
+        $I->waitForElementVisible('//h2[text()="'.MEMBERSHIP_PURCHASED_SUCCESSFULLY.'"]',15);
         $I->executeJS("window.scrollTo(0,700);");
         $I->wait(1);
 
          //Login
          $I->amOnPage('/');
-         $I->see('BOOK YOUR TICKETS');
+         $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
          $I->fillField('username',$this->email);
          $I->fillField('password',$this->password);
          //Click Login
+         $I->waitForElementVisible('//*[@id="edit-submit"]');
          $I->click('//*[@id="edit-submit"]');
          
-         $I->waitForElementVisible('//a[text()="Log out"]');
-         $I->waitForElementVisible('//a[text()="Edit Profile"]');
+         $I->waitForElementVisible('//a[text()="تسجيل الخروج"]'); //Logout button
+         $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]'); //EditProfile
          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
 
         //Check the Current MemberShip
-        $I->see("CP Family");
-
-        $I->wait(6);
-
+        $I->see("البطاقة العائلية"); //CP Family
+        $I->wait(3);
     }
 }

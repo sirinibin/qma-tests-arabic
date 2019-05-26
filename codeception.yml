@@ -6,7 +6,7 @@ suites:
         modules:
             enabled:
                 - WebDriver:
-                    url: http://100.24.131.250/qma_test/qmaweb
+                    url: http://100.24.131.250/qma_test/qmaweb/ar
                     window_size: 1280x1200
                     browser: chrome
                     pageload_timeout: 120

@@ -1,5 +1,5 @@
 <?php 
-
+require_once("common.php");
 class GuestTicketPurchaseCest
 {
     public function _before(AcceptanceTester $I)
@@ -12,28 +12,32 @@ class GuestTicketPurchaseCest
         $I->wantTo('Test Guest User Ticket Purchase');
         // Land on home page and Press next button
         $I->amOnPage('/');
-        $I->see('BOOK YOUR TICKETS');
+        $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
         $I->wait(2);
 
         //Select ticket types
         $I->executeJS("window.scrollTo(0,600);");
         $I->wait(2);
         $I->waitForElementVisible("/html/body/section[2]/div/div/div[1]/div[2]/h2");
-        $I->see('select tickets');
+        $I->see("اختر التذاكر"); // check text:"select tickets"
+        $I->executeJS("window.scrollTo(0,800);");
         $I->wait(2);
-        $I->waitForElementVisible('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
-        $I->click('//*[@id="list_tickets"]/div[2]/article/div/button[2]');
+        $I->waitForElementVisible(ADULT_TICKET);
+        $I->click(ADULT_TICKET);
         $I->wait(2);
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
+        $I->wait(2);
         $I->waitForElementVisible('/html/body/section[2]/div/div/div[1]/div[3]/h2');
-        $I->see("enter your information to receive tickets");
+        $I->see("أدخل بياناتك"); // check text "enter your information to receive tickets"
         $I->wait(2);
         
         $I->fillField('#qmatkt-firstname', "john");
@@ -43,14 +47,16 @@ class GuestTicketPurchaseCest
 
         $I->wait(2);
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
         $I->wait(2);
-        $I->see("please check your order");
+        $I->see("يرجى التحقق من طلبك");
         $I->wait(2);
         //Click Next button
-        $I->click('next');
+        $I->waitForElementVisible('//a[text()="التالي"]');
+        $I->click('//a[text()="التالي"]');
         //Select Master Card
         $I->waitForElementVisible('/html/body/center/table[6]/tbody/tr[3]/td/table/tbody/tr/td[1]/a/img');
         $I->click('/html/body/center/table[6]/tbody/tr[3]/td/table/tbody/tr/td[1]/a/img');
@@ -67,8 +73,8 @@ class GuestTicketPurchaseCest
         $I->waitForText("Please wait while your payment is processed",15);
         $I->waitForText("Your payment has been approved.",15);
         $I->executeJS("window.scrollTo(0,700);");
-        $I->waitForElementVisible("//h2[text()='TICKET PURCHASED SUCCESFULLY!']",15);
+        $I->waitForElementVisible("//h2[text()='".TICKET_PURCHASED_SUCCESSFULLY."']",15); //TICKET PURCHASED SUCCESFULLY!
         $I->executeJS("window.scrollTo(0,500);");
-        $I->wait(5);
+        $I->wait(3);
     }
 }
