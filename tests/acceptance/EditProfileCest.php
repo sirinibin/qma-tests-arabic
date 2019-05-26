@@ -78,9 +78,11 @@ class EditProfileCest
         //Click Login
         $I->waitForElementVisible('//*[@id="edit-submit"]');
         $I->click('//*[@id="edit-submit"]');
+        $I->wait(4);
+        $I->executeJS("window.scrollTo(0,700);");
         $I->wait(2);
-        $I->waitForElementVisible('//a[text()="تسجيل الخروج"]');
-        $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]'); //EditProfile
+        $I->waitForElementVisible(LOGOUT_BUTTON);
+        $I->waitForElementVisible(EDIT_PROFILE_BUTTON); //EditProfile
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
         $I->wait(2);
@@ -116,9 +118,9 @@ class EditProfileCest
 
         //LogOut
         $I->amOnPage('/');
-        $I->executeJS("window.scrollTo(0,900);");
+        $I->executeJS("window.scrollTo(0,700);");
         $I->wait(2);
-        $I->click('//a[text()="تسجيل الخروج"]'); //Click LogOut
+        $I->click(LOGOUT_BUTTON); //Click LogOut
         $I->wait(4);
         $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
         $I->wait(4);

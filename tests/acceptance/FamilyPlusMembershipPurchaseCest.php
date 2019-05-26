@@ -99,9 +99,11 @@ class FamilyPlusMembershipPurchaseCest
          //Click Login
          $I->waitForElementVisible('//*[@id="edit-submit"]');
          $I->click('//*[@id="edit-submit"]');
-         
-         $I->waitForElementVisible('//a[text()="تسجيل الخروج"]'); //Logout button
-         $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]'); //EditProfile
+         $I->wait(4);
+         $I->executeJS("window.scrollTo(0,700);");
+         $I->wait(2);
+         $I->waitForElementVisible(LOGOUT_BUTTON);
+         $I->waitForElementVisible(EDIT_PROFILE_BUTTON); //EditProfile
          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
 

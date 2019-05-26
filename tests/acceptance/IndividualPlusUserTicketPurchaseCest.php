@@ -96,9 +96,11 @@ class IndividualPlusUserTicketPurchaseCest
         //Click Login
         $I->waitForElementVisible('//*[@id="edit-submit"]');
         $I->click('//*[@id="edit-submit"]');
-        
-        $I->waitForElementVisible('//a[text()="تسجيل الخروج"]');
-        $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]'); //EditProfile
+        $I->wait(4);
+        $I->executeJS("window.scrollTo(0,700);");
+        $I->wait(2);
+        $I->waitForElementVisible(LOGOUT_BUTTON);
+        $I->waitForElementVisible(EDIT_PROFILE_BUTTON); //EditProfile
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,600);");
         $I->wait(2);
@@ -142,7 +144,6 @@ class IndividualPlusUserTicketPurchaseCest
         
         $I->fillField('#qmatkt-firstname', $this->firstName);
         $I->fillField('#qmatkt-lastname', $this->lastName);
-        $I->fillField('#qmatkt-email', $this->email);
         $I->fillField('#qmatkt-phone', $this->phone);
 
         $I->wait(2);

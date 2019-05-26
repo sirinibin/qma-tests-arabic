@@ -82,15 +82,16 @@ class LoginCest
         //Click Login
         $I->waitForElementVisible('//*[@id="edit-submit"]');
         $I->click('//*[@id="edit-submit"]');
-        
-        $I->waitForElementVisible('//a[text()="تسجيل الخروج"]'); //LogOut button
-        $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]');   //EditProfile
-        $I->wait(2);
+        $I->wait(4);
+        $I->executeJS("window.scrollTo(0,700);");
+        $I->wait(4);
+        $I->waitForElementVisible(LOGOUT_BUTTON);
+        $I->waitForElementVisible(EDIT_PROFILE_BUTTON);   //EditProfile
         $I->executeJS("window.scrollTo(0,700);");
         $I->wait(2);
        
         $I->waitForElementVisible('//a[text()="تسجيل الخروج"]');
-        $I->click('//a[text()="تسجيل الخروج"]'); //Click LogOut
+        $I->click(LOGOUT_BUTTON); //Click LogOut
         
         $I->wait(4);
         $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
