@@ -18,11 +18,11 @@ class BasicMembershipPurchaseCest
         $I->wantTo('Test Basic Membership Purchase');
         $I->amOnPage('/');
         $I->see('حجز التذاكر الخاصة بك'); //check text ""BOOK YOUR TICKETS"
-        $I->executeJS("window.scrollTo(0,500);");
+        $I->executeJS("window.scrollTo(0,700);");
         $I->wait(2);
          //click Join
-         $I->waitForElementVisible('//a[text()="التسجيل"]');
-         $I->click('//a[text()="التسجيل"]');
+         $I->waitForElementVisible(JOIN_BUTTON);
+         $I->click(JOIN_BUTTON);
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);

@@ -16,8 +16,8 @@ class BasicPlanUserTicketPurchaseCest
          $I->executeJS("window.scrollTo(0,500);");
          $I->wait(2);
          //click Join
-         $I->waitForElementVisible('//a[text()="التسجيل"]');
-         $I->click('//a[text()="التسجيل"]');
+         $I->waitForElementVisible(JOIN_BUTTON);
+         $I->click(JOIN_BUTTON);
          $I->wait(2);
          $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
          $I->wait(2);
@@ -122,7 +122,9 @@ class BasicPlanUserTicketPurchaseCest
         $I->fillField('#qmatkt-firstname', "john");
         $I->fillField('#qmatkt-lastname', "Jhones");
         $I->fillField('#qmatkt-phone', 9633977699);
-
+        $I->executeJS("window.scrollTo(0,700);");
+        $I->wait(2);
+        //$I->click("/html/body/section[2]/div/div/div[1]/div[3]/div/ul/li[3]/input");
         $I->wait(2);
         $I->waitForElementVisible('//a[text()="التالي"]');
         $I->click('//a[text()="التالي"]');

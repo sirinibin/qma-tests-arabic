@@ -16,8 +16,8 @@ class UpgradeIndividualToFamilyPlusCest
         $I->executeJS("window.scrollTo(0,500);");
         $I->wait(2);
         //click Join
-        $I->waitForElementVisible('//a[text()="التسجيل"]');
-        $I->click('//a[text()="التسجيل"]');
+        $I->waitForElementVisible(JOIN_BUTTON);
+        $I->click(JOIN_BUTTON);
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
 
@@ -26,8 +26,8 @@ class UpgradeIndividualToFamilyPlusCest
         $I->click(CP_PLUS);
                    
         //Click Next button
-        $I->waitForElementVisible('//a[text()="التالي"]');
-        $I->click('//a[text()="التالي"]');
+        $I->waitForElementVisible('#membeship_next_btn');
+        $I->click('#membeship_next_btn');
 
         //Fill the Your account details form
         $this->email='test'.mt_rand().'@gmail.com';
@@ -125,8 +125,8 @@ class UpgradeIndividualToFamilyPlusCest
          $I->click(CP_FAMILY_UPGRADE);
       
          //Click Next button
-         $I->waitForElementVisible('//a[text()="التالي"]');
-         $I->click('//a[text()="التالي"]');
+         $I->waitForElementVisible('#membeship_upgrade_next_btn');
+         $I->click('#membeship_upgrade_next_btn');
 
          $I->wait(3);
 
@@ -135,8 +135,8 @@ class UpgradeIndividualToFamilyPlusCest
           $I->wait(2);
   
           //Click Next button
-          $I->waitForElementVisible('//a[text()="التالي"]');
-          $I->click('//a[text()="التالي"]');
+          $I->waitForElementVisible('#membeship_upgrade_next_btn');
+          $I->click('#membeship_upgrade_next_btn');
           $I->wait(2);
      
           //Select Master Card & Make Payment

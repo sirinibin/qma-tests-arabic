@@ -17,8 +17,8 @@ class EditProfileCest
         $I->wait(2);
         //click Join
          //click Join
-        $I->waitForElementVisible('//a[text()="التسجيل"]');
-        $I->click('//a[text()="التسجيل"]');
+        $I->waitForElementVisible(JOIN_BUTTON);
+        $I->click(JOIN_BUTTON);
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
@@ -93,8 +93,8 @@ class EditProfileCest
     public function tryToTest(AcceptanceTester $I)
     {
         $I->wantTo('Test تعديل الملف الشخصي');
-        $I->waitForElementVisible('//a[text()="تعديل الملف الشخصي"]');
-        $I->click('//a[text()="تعديل الملف الشخصي"]');
+        $I->waitForElementVisible(EDIT_PROFILE_BUTTON);
+        $I->click(EDIT_PROFILE_BUTTON);
         $I->wait(4);
         $I->waitForElementVisible('//h2[text()="عدّل ملفك الشخصي / تعديل الملف الشخصي"]'); // check text: "your account details"
         
@@ -113,7 +113,7 @@ class EditProfileCest
         
         $I->wait(4);
         $I->executeJS("window.scrollTo(0,300);");
-        $I->see('Profile updated');
+        $I->see('Your details has been updated');
         $I->wait(4);
 
         //LogOut

@@ -21,8 +21,8 @@ class IndividualPlusMembershipPurchaseCest
         $I->executeJS("window.scrollTo(0,500);");
         $I->wait(2);
         //click Join
-        $I->waitForElementVisible('//a[text()="التسجيل"]');
-        $I->click('//a[text()="التسجيل"]');
+        $I->waitForElementVisible(JOIN_BUTTON);
+        $I->click(JOIN_BUTTON);
         $I->wait(2);
         $I->executeJS("window.scrollTo(0,document.body.scrollHeight);");
         $I->wait(2);
