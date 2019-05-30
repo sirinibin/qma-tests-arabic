@@ -113,7 +113,7 @@ class EditProfileCest
         
         $I->wait(4);
         $I->executeJS("window.scrollTo(0,300);");
-        $I->see('Your details has been updated');
+        $I->see('تم تحديث التفاصيل الخاصة بك');
         $I->wait(4);
 
         //LogOut

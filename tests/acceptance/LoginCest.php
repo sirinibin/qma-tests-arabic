@@ -90,7 +90,7 @@ class LoginCest
         $I->executeJS("window.scrollTo(0,700);");
         $I->wait(2);
        
-        $I->waitForElementVisible('//a[text()="تسجيل الخروج"]');
+        $I->waitForElementVisible(LOGOUT_BUTTON);
         $I->click(LOGOUT_BUTTON); //Click LogOut
         
         $I->wait(4);
